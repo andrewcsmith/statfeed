@@ -19,7 +19,7 @@ class TestStatfeed < Minitest::Test
 
   def test_scheduling_values
     actual = @sf.scheduling_values(0)
-    assert_each_in_delta [3.3633, 3.3933, 3.4233], actual
+    assert_each_in_delta [3.03, 3.06, 3.09], actual
   end
 
   def test_sort_options

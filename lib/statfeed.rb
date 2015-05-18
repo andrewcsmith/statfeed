@@ -14,12 +14,16 @@ class Statfeed
     # Vector of accent values for each decision
     @accents = Array.new(decisions.size, accent)
     # Vector of statistic for each option
-    @statistics = Array.new(options.size, 0.0)
+    reset_statistics
 
     # Fill matrix of random values
     populate_randoms
     # Fill matrix of weights
     populate_weights
+  end
+
+  def reset_statistics
+    @statistics = Array.new(options.size, 0.0)
   end
 
   def populate_choices

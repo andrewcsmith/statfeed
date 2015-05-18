@@ -4,11 +4,12 @@
 
 == DESCRIPTION:
 
-Statistical feedback algorithms in Ruby.
+Statistical feedback algorithm in Ruby. Taken from Charles Ames' paper
+"Statistics and Compositional Balance," in Perspectives of New Music.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* keeps track of statistics and gives you a balanced distrubtion
 
 == SYNOPSIS:
 
@@ -16,11 +17,11 @@ Statistical feedback algorithms in Ruby.
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* ruby
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+    gem install statfeed
 
 == DEVELOPERS:
 
