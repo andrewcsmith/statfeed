@@ -1,5 +1,5 @@
 class Statfeed
-  VERSION = "1.0.0"
+  VERSION = "1.0.1"
   attr_accessor :weights, :choices, :randoms, :heterogeneities, :accents, :statistics, :size, :decisions, :options
  
   def initialize decisions, options, heterogeneity: 0.1, accent: 1.0

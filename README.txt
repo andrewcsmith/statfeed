@@ -1,6 +1,6 @@
 = statfeed
 
-* http://www.andrewchristophersmith.com
+* http://www.github.com/andrewcsmith/statfeed
 
 == DESCRIPTION:
 
