@@ -27,13 +27,20 @@ class Statfeed
   end
 
   def populate_choices
-    @decisions.each_index do |decision|
-      vals = scheduling_values(decision)
-      @choices[decision] = sort_options(vals).first
-      increment_statistics decision, sort_option_indices(vals).first
-      normalize_statistics! decision
+    @choices.tap do |choices|
+      @decisions.each_index do |decision|
+        options = sort_options(scheduling_values(decision))
+        index = options.find_index {|o| acceptable? o}
+        choices[decision] = options[index]
+        increment_statistics decision, index
+        normalize_statistics! decision
+      end
     end
-    @choices
+  end
+
+  # Default is "everything's okay"
+  def acceptable? o
+    true
   end
 
   def populate_randoms

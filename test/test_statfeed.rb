@@ -27,32 +27,19 @@ class TestStatfeed < Minitest::Test
     assert_each_equal %w(a c b), actual
   end
 
-  def test_n_decisions
-    # Should have N possible decisions
+  def test_populate_choices
+    actual = @sf.populate_choices
+    assert_each_equal %w(a b b), actual
   end
 
-  def test_m_options
-    # Should have a common pool of M possible options
-  end
+  def test_additional_constraints
+    # Define a new method excluding the a
+    def @sf.acceptable? o
+      o != 'a'
+    end
 
-  def test_s_sub_m
-    # Should have a statistic S_m for the statistic associated with option m
-  end
-
-  def test_a_sub_n
-    # Accent (stress) associated with the decision n
-  end
-
-  def test_h_sub_n
-    # Heterogeneity associated with decision n
-  end
-
-  def test_w_sub_m_n
-    # Weight associated with option m during decision n
-  end
-
-  def test_u_sub_m_n
-    # Uniformly distributed random number for each option of each decision
+    actual = @sf.populate_choices
+    assert_each_equal %w(b c c), actual
   end
 
   def assert_each_in_delta exp, act, delta = 0.001
