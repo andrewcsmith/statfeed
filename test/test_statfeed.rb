@@ -34,7 +34,7 @@ class TestStatfeed < Minitest::Test
 
   def test_additional_constraints
     # Define a new method excluding the a
-    def @sf.acceptable? o
+    def @sf.acceptable? o, *args
       o != 'a'
     end
 

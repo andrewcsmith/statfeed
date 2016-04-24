@@ -1,5 +1,5 @@
 class Statfeed
-  VERSION = "1.0.1"
+  VERSION = "1.1.2"
   attr_accessor :weights, :choices, :randoms, :heterogeneities, :accents, :statistics, :size, :decisions, :options
  
   def initialize decisions, options, heterogeneity: 0.1, accent: 1.0
@@ -30,7 +30,7 @@ class Statfeed
     @choices.tap do |choices|
       @decisions.each_index do |decision|
         options = sort_options(scheduling_values(decision))
-        index = options.find_index {|o| acceptable? o}
+        index = options.find_index {|o| acceptable? o, decision}
         choices[decision] = options[index]
         increment_statistics decision, index
         normalize_statistics! decision
@@ -39,7 +39,7 @@ class Statfeed
   end
 
   # Default is "everything's okay"
-  def acceptable? o
+  def acceptable? *args
     true
   end
 
